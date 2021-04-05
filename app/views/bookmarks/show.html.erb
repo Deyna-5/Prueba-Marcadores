@@ -7,12 +7,12 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @bookmark.type %>
+  <%= @bookmark.type.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @bookmark.category %>
+  <%= @bookmark.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |

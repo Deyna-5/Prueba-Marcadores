@@ -1,4 +1,4 @@
-<%= form_with(model: @bookmark, remote: true, data: {confirm: "¿Deseas crear este marcador?"}, class: "form-inline" ) do |form| %>
+<%= form_with(model: @bookmark, remote: true, data: {confirm: "¿Deseas crear este marcador?"}, class: "form-inline text-white text-center" ) do |form| %>
   
   <% if @bookmark.errors.any? %>
     <div id="error_explanation">
@@ -12,19 +12,19 @@
   <% end %>
   
   <div class="field mx-2">
-    <%= form.label :url %>
+    <%= form.label "Url de la página web" %>
     <%= form.text_field :url %>
   </div>
   <div class="field mx-2">
-    <%= form.label :type_id %>
-    <%= form.collection_select :type_id, @types, :id, :name, prompt: "Selecciona el tipo" %>
+    <%= form.label "Tipo de archivo" %>
+    <%= form.collection_select :type_id, @types, :id, :name, prompt: "Selecciona..." %>
   </div>
   <div class="field mx-2">
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, @categories, :id, :name, prompt: "Selecciona la categoria" %>
+    <%= form.label "Categoria del marcador" %>
+    <%= form.collection_select :category_id, @categories, :id, :name, prompt: "Selecciona..." %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit%>
   </div>
 <% end %>

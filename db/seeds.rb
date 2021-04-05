@@ -84,7 +84,7 @@ Category.create(
 #Creacion de Bookmarks
 Bookmark.destroy_all
 
-10.times do
+20.times do
        Bookmark.create(
               url: Faker::Internet.url,
               type_id: rand(1..5),
