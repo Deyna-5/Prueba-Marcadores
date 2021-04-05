@@ -4,11 +4,9 @@ class BookmarksController < ApplicationController
   def index
     @bookmarks = Bookmark.all
     @bookmark = Bookmark.new
-
     #Tipos y Categorias
     @categories = Category.all
     @types = Type.all
-
     #respuesta
     respond_to do |format|
       format.html {}
@@ -24,25 +22,18 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-    respond_to do |format|
-      format.js {}
-    end
-
     @categories = Category.all
     @types = Type.all
   end
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to @bookmark, notice: "Bookmark was successfully created." }
-        format.json { render :show, status: :created, location: @bookmark }
+        format.html { redirect_to @bookmark, notice: "El marcador fue creado con éxito" }
         format.js {}
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
         format.js {}
       end
     end
@@ -51,13 +42,11 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to @bookmark, notice: "Bookmark was successfully updated." }
-        format.json { render :show, status: :ok, location: @bookmark }
-        format.js {}
+        format.html { redirect_to @bookmark, notice: "El marcador fue editado con éxito" }
+        format.js { @bookmark }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
-        format.js {}
+        format.js { render :index }
       end
     end
   end
@@ -65,8 +54,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark.destroy
     respond_to do |format|
-      format.html { redirect_to bookmarks_url, notice: "Bookmark was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to bookmarks_url, notice: "El marcador fue borrado con éxito" }
       format.js {}
     end
   end
