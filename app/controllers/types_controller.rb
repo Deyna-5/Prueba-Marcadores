@@ -3,6 +3,9 @@ class TypesController < ApplicationController
 
   def index
     @types = Type.all
+
+    # @chartkick = Bookmark.group(:type).count
+    @bookmarks = Bookmark.all
   end
 
   def show

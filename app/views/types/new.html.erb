@@ -1,5 +1,8 @@
-<h1>New Type</h1>
+<h1 class="text-center my-4">Crear nuevo tipo</h1>
 
-<%= render 'form', type: @type %>
+<div class="jumbotron container text-white bg-info">
+       <%= render 'form', type: @type %>
 
-<%= link_to 'Back', types_path %>
+       <%= link_to 'Back', types_path, class: "btn btn-light mt-3" %>
+</div>
+

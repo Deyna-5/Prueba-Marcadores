@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, "Nombe de la categoria" %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :public %>
+    <%= form.label :public, "¿La categoria es publica?" %>
     <%= form.check_box :public %>
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
+    <%= form.label :category_id, "¿La categoria pertene a alguna otra? Si ese es el caso, escribe el id de la categoria principal." %>
     <%= form.text_field :category_id %>
   </div>
 

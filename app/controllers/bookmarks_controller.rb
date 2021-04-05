@@ -7,6 +7,9 @@ class BookmarksController < ApplicationController
     #Tipos y Categorias
     @categories = Category.all
     @types = Type.all
+
+    #Categorias publicas
+    @public_categories = Category.where("public is true")
     #respuesta
     respond_to do |format|
       format.html {}
@@ -42,7 +45,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to @bookmark, notice: "El marcador fue editado con éxito" }
+        format.html { redirect_to root_path, notice: "El marcador fue editado con éxito" }
         format.js { @bookmark }
       else
         format.html { render :edit, status: :unprocessable_entity }

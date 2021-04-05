@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="jumbotron bg-light text-center">
+<div class="jumbotron text-center bg-info">
   <p>
     <strong>Url:</strong>
     <%= @bookmark.url %>
   </p>
 
   <p>
-    <strong>Type:</strong>
+    <strong>Tipo</strong>
     <%= @bookmark.type.name %>
   </p>
 
   <p>
-    <strong>Category:</strong>
+    <strong>Categoria</strong>
     <%= @bookmark.category.name %>
   </p>
 
-  <%= link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-outline-info" %> |
-  <%= link_to 'Back', bookmarks_path, class: "btn btn-outline-info" %>
+  <%= link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-light mt-3" %> |
+  <%= link_to 'Back', bookmarks_path, class: "btn btn-light mt-3" %>
 </div>
 
