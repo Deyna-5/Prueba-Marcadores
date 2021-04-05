@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @bookmarker.url %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @bookmarker.type %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @bookmarker.category %>
+</p>
+
+<%= link_to 'Edit', edit_bookmarker_path(@bookmarker) %> |
+<%= link_to 'Back', bookmarkers_path %>
