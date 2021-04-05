@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="jumbotron bg-info text-white text-center">
+  <p>
+    <strong>Name:</strong>
+    <%= @category.name %>
+  </p>
 
-<p>
-  <strong>Public:</strong>
-  <%= @category.public %>
-</p>
+  <p>
+    <strong>Public:</strong>
+    <%= @category.public %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @category.category %>
-</p>
+  <% if @category.category.nil? %>
+  <p>
+    <strong>Categoria</strong>
+    Principal
+  </p>
+  <% else %>
+  <p>
+    <strong>Categoria</strong>
+    <%= @category.category.name %>
+  </p>
+  <%end%>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+  <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-light mt-3" %> |
+  <%= link_to 'Back', categories_path, class: "btn btn-light mt-3" %>
+</div>
+

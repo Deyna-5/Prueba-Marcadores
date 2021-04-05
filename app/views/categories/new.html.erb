@@ -1,5 +1,7 @@
-<h1>New Category</h1>
-
+<h1 class="text-center my-4">Crear nueva categoria</h1>
+<div class="jumbotron bg-info text-white container">
 <%= render 'form', category: @category %>
 
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', categories_path, class: "btn btn-light mt-4" %>
+</div>
+

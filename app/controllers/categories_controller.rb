@@ -49,6 +49,12 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def api
+    categoria_principal = Category.where('category_id is null')
+    api = categoria_principal.map{|category| {Categoria: category.name, Subcategoria: category.categories.map{|sub| sub.name}}}
+    render json: api
+  end
+
   private
     def set_category
       @category = Category.find(params[:id])

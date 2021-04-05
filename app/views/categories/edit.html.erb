@@ -1,6 +1,8 @@
-<h1>Editing Category</h1>
+<h1 class="text-center my-4">Editar categoria</h1>
 
-<%= render 'form', category: @category %>
+<div class="jumbotron bg-info text-white container">
+       <%= render 'form', category: @category %>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+       <%= link_to 'Volver atras', categories_path, class: "btn btn-light mt-5" %>
+</div>
+
