@@ -10,18 +10,21 @@ Type.create(
                      name: "Imagen"
               },
               {
-                     name: "Text"
+                     name: "Texto"
               },
               {
                      name: "PDF"
               },
               {
                      name: "Audio"
+              },
+              {
+                     name: "Hoja de calculo"
               }
        ]
 )
 
-#Creo las Categorias de Bookmarks
+#Creando las Categorias de Bookmarks
 Category.destroy_all
 Category.create(
        [
@@ -36,11 +39,17 @@ Category.create(
               },
               {
                      name: "Redes Sociales" #Tendrá el ID = 4
+              },
+              {
+                     name: "Cosméticos" #Tendrá el ID = 5
+              },
+              {
+                     name: "Arte" #Tendrá el ID = 6
               }
        ]
 )
 
-#Creo las sub categorias
+#Creando las sub categorias
 Category.create(
        [      #Sub categorias de Animales
               {
@@ -77,6 +86,24 @@ Category.create(
               {
                      name: "Instagram",
                      category_id: 4
+              },
+              #Sub categorias de Cosmeticos
+              {
+                     name: "Makeup",
+                     category_id: 5
+              },
+              {      
+                     name: "Skin care",
+                     category_id: 5
+              },
+              #Sub categorias de Arte
+              {
+                     name: "Acuarela",
+                     category_id: 6
+              },
+              {
+                     name: "Printmaker",
+                     category_id: 6
               }
        ]
 )
@@ -87,7 +114,7 @@ Bookmark.destroy_all
 20.times do
        Bookmark.create(
               url: Faker::Internet.url,
-              type_id: rand(1..5),
-              category_id: rand(1..12)
+              type_id: rand(1..6),
+              category_id: rand(1..18)
        )
 end
