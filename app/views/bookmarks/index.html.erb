@@ -18,7 +18,7 @@
   </thead>
   <tbody id="table">
     <% @bookmarks.each do |bookmark| %>
-      <tr>
+      <tr id=bookmark_<%= bookmark.id %> >
         <td><%= bookmark.url %></td>
         <td><%= bookmark.category.name %></td>
         <td><%= bookmark.type.name %></td>
