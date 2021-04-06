@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :set_category, only: %i[ show edit update destroy api ]
 
   def index
     @categories = Category.all
@@ -50,13 +50,15 @@ class CategoriesController < ApplicationController
   end
 
   def api
-    categoria_principal = Category.where('category_id is null')
-    api = categoria_principal.map{|category| {Categoria: category.name, Subcategoria: category.categories.map{|sub| sub.name}}}
-    
-    render json: api
+    render json: @category.to_json(include: [:categories, :bookmarks], only: [:id, :name, :public, :category])
   end
 
   private
+
+  def find_category_params
+    params.permit(:category)
+  end
+
     def set_category
       @category = Category.find(params[:id])
     end
